@@ -11,6 +11,7 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad } from '@fortawesome/free-solid-svg-icons'
+import CartWidget from './CartWidget';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -78,12 +79,13 @@ const NavBar = () =>  {
                 <MenuItem>Nintendo Games</MenuItem>
             </Menu>
             <Box sx={{ flexGrow: 2 }}/>
-            <Search>          
+            <Search sx={{marginRight:1}}>          
                 <SearchIconWrapper>
                     <SearchIcon/>
                 </SearchIconWrapper>
                 <StyledInputBase placeholder="Buscador" inputProps={{ 'aria-label': 'search' }}/>
             </Search>
+            <CartWidget/>
         </Toolbar>
       </AppBar>
     </React.Fragment>
