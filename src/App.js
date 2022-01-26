@@ -7,8 +7,7 @@ function App() {
     <div classname="App">
        <NavBar/>
        <ItemListContainer user="Fran"/>
-    </div> 
-   
+    </div>    
   );
 }
 export default App;
