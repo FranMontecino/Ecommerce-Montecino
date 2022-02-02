@@ -136,3 +136,10 @@
   box-shadow: none;
   transform: translateY(0);
   }
+
+  .productImage{
+    max-width: 150px;
+  height: auto;
+    border-radius: 8px;
+    margin: auto;
+} 
