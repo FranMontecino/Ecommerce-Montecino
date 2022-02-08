@@ -12,7 +12,7 @@ const Item = ({product}) => {
             <Typography sx = {{marginLeft:"auto", fontSize:20, marginRight:"auto",marginBottom:"auto"}}>{product.Name}</Typography>  
             <img src={product.Image} className="productImage"></img> 
             <Box sx = {{display:"flex", justifyContent:"center", gap:5, marginTop:1}}>
-                <Button variant="outlined" startIcon={<InfoIcon/>}>Info</Button>
+                <Button variant="outlined">Stock:{product.Stock}</Button>
                 <Button variant="contained" endIcon={<ShoppingCartIcon />}>USD${product.Price}</Button>
             </Box>
         </Box>

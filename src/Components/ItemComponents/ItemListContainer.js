@@ -6,6 +6,7 @@ import GetProducts from "../../GetProducts/GetProducts";
 import ItemList from "./ItemList";
 import Box from "@mui/material/Box";
 import swal from "sweetalert";
+import ItemCount from "./ItemCount";
 
 /*export class ItemListContainer extends Component {
   render() {
@@ -13,6 +14,7 @@ import swal from "sweetalert";
     return (
       <div>
         <h1>Bienvenido, {user} <FontAwesomeIcon icon={faHandPeace} size="1x" />!</h1>
+        <ItemCount initial={1}/>
       </div>
     );
   };
