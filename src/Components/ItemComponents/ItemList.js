@@ -6,7 +6,8 @@ const ItemList = ({products}) => {
     return(
         <Box Wrap sx={{display:"flex", flexWrap:"wrap", justifyContent:"center"}}>
             {products.map(product => {
-                return(<Item product= {product}/>)
+                return(
+                <Item id = {product.id} product= {product}/>)
             })};
         </Box>
     );

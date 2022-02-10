@@ -12,6 +12,7 @@ import InputBase from '@mui/material/InputBase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad } from '@fortawesome/free-solid-svg-icons'
 import CartWidget from './CartWidget';
+import { Link } from "react-router-dom";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -69,14 +70,14 @@ const NavBar = () =>  {
     <React.Fragment>
       <AppBar position="static" sx={{marginBottom:5}}>
         <Toolbar> 
-            <FontAwesomeIcon icon={faGamepad} size="3x" />
+            <Link to={`/`} style={{ textDecoration: 'none' }}><FontAwesomeIcon icon={faGamepad} size="3x" /></Link>
             <Typography variant="h6" component="div" sx={{ marginLeft:1}}> Gplay </Typography>          
             <Button color="inherit" id="basic-button" aria-controls="basic-menu" aria-haspopup="true" aria-expanded={open ? 'true' : undefined} sx={{ marginLeft:2}} onClick={handleClick}> Categorias </Button>
             <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose} MenuListProps={{'aria-labelledby': 'basic-button',}}>
-                <MenuItem>PS Games</MenuItem>
-                <MenuItem>PC Games</MenuItem>
-                <MenuItem>Xbox Games</MenuItem>
-                <MenuItem>Nintendo Games</MenuItem>
+              <Link to={`/category/ps`} style={{ textDecoration: 'none' }}><MenuItem>PS Games</MenuItem></Link>
+              <Link to={`/category/pc`} style={{ textDecoration: 'none' }}><MenuItem>PC Games</MenuItem></Link>
+              <Link to={`/category/xbox`} style={{ textDecoration: 'none' }}><MenuItem>Xbox Games</MenuItem></Link>
+              <Link to={`/category/nintendo`} style={{ textDecoration: 'none' }}><MenuItem>Nintendo Games</MenuItem></Link>
             </Menu>
             <Box sx={{ flexGrow: 2 }}/>
             <Search sx={{marginRight:1}}>          
