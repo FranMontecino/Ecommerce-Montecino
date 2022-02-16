@@ -41,7 +41,7 @@ const productos = [
         "Name":"Zelda Breath of the Wild",
         "Description":"Link despierta tras un profundo sueño de 100 años en un misterioso templo en el reino de Hyrule; junto a él, deberemos descubrir su pasado mientras escuchamos una voz que nos incita a enfrentarnos a un malvado ser que provocó el llamado cataclismo: Ganon.",
         "Price":"45",
-        "Stock":"12",
+        "Stock":"9",
         "Type":"nintendo"
     },
     {
@@ -105,8 +105,43 @@ const productos = [
         "Price":"10",
         "Stock":"8",
         "Type":"ps"
+    },
+    {
+        "Id":13,
+        "Image":"https://s3.gaming-cdn.com/images/products/10178/orig/elden-ring-xbox-one-xbox-one-juego-microsoft-store-cover.jpg",
+        "Name":"Elden Ring",
+        "Description":"La historia de Elden Ring es la del Sinluz, un exiliado que regresa a un marchito y enorme reino conocido como las Tierras Intermedias. Su propósito: reclamar el poder del Círculo de Elden. Una gesta que lo enfrentará a criaturas de pesadilla y un cruel destino.",
+        "Price":"70",
+        "Stock":"8",
+        "Type":"pc"
+    },
+    {
+        "Id":14,
+        "Image":"https://www.gamereactor.es/media/53/legendzelda_885314.jpg",
+        "Name":"Zelda The Wind Waker",
+        "Description":"The Wind Waker, ocurre cientos de años después de la derrota de Ganon en Ocarina of Time,​​ y se sitúa en un vasto océano repleto de islas.",
+        "Price":"5",
+        "Stock":"8",
+        "Type":"nintendo"
+    },
+    {
+        "Id":15,
+        "Image":"https://www.juegostorrentpc.net/wp-content/uploads/2021/03/zelda-link-awakening-cover-pc.jpg",
+        "Name":"Zelda Link's Awakening",
+        "Description":"Link's Awakening es el primer Zelda con perspectiva arriba-abajo que permite a Link saltar (con la ayuda de un objeto). Además, contiene rompecabezas en scroll lateral,​​ similares a los encontrados en el juego anterior Zelda II: The Adventure of Link.",
+        "Price":"7",
+        "Stock":"8",
+        "Type":"nintendo"
+    },
+    {
+        "Id":16,
+        "Image":"https://muropaketti.com/wp-content/uploads/2020/12/cyberpunk-box.jpg",
+        "Name":"Cyberpunk 2077",
+        "Description":"Cyberpunk 2077 es una historia de acción y aventura en mundo abierto ambientada en Night City, una megalópolis obsesionada con el poder, el glamur y la modificación corporal. Tu personaje es V, un mercenario que persigue un implante único que permite alcanzar la inmortalidad.",
+        "Price":"35",
+        "Stock":"8",
+        "Type":"pc"
     }
-
 ]
 
 const getProducts = new Promise((resolve)=>{

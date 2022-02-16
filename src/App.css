@@ -37,24 +37,6 @@
   }
 }
 
-.quantity {
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid #1A1A1A;
-  border-radius: 15px;
-  box-sizing: border-box;
-  color: #3B3B3B;
-  display: inline-block;
-  font-size: 15px;
-  line-height: normal;
-  margin: 10px;
-  min-height: 20px;
-  outline: none;
-  padding: 5px 15px;
-  text-align: center;
-  text-decoration: none;
-  }
-  
   .itemBtn {
   appearance: none;
   background-color: transparent;
