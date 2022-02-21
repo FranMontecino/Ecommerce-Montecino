@@ -6,16 +6,19 @@ import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import ItemCount from '../ItemComponents/ItemCount';
 import { Link } from "react-router-dom";
+import { UseCart } from '../Contexts/CartContext'
 
 
 const ItemDetail = ({item}) => {
 
     const[quantity, setQuantity]= useState(0);
+    const {addItem, removeItem} = UseCart();
 
     useEffect(() => {
       let msg = `Has añadido al carrito ${quantity} ejemplar`
       if (quantity !== 0) {
-        quantity > 1 ? alert(msg+'es'): alert(msg);  
+        quantity > 1 ? alert(msg+'es'): alert(msg);
+        addItem(item, quantity);  
         }
     },[quantity])
 
