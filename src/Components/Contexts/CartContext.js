@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext} from 'react';
+import { createContext, useState, useContext} from 'react';
 
 export const CartContext = createContext();
 export const UseCart = () => useContext(CartContext);
@@ -7,35 +7,40 @@ export const CartProvider = ({children}) => {
 
     const [addedProducts, setAddedProducts] = useState([]);
 
-    useEffect(() => {
-        console.log(addedProducts);
-    },[addedProducts])
-
-
     const addItem = (item, quantity) => { 
         setAddedProducts(addedProducts.filter(item => item !== undefined ))
-        if(insIncart(item.Id)){
+        if(insIncart(item.Id)){            
+            let index =  addedProducts.findIndex((prod) => prod.item.Id === item.Id)   
 
-            let newValue =  addedProducts.findnewValue((prod) => prod.item.Id === item.Id)
-
-            let posibleQuantity = addedProducts[newValue].quantity + quantity;
-
-            if(posibleQuantity < item.Stock){
-                addedProducts[newValue].quantity = posibleQuantity
-            }  
+            let PosibleQuantity = addedProducts[index].quantity + quantity;            
+            if(PosibleQuantity < item.Stock){
+                addedProducts[index].quantity = PosibleQuantity
+            }else{
+                alert(`El numero de productos (${PosibleQuantity}) que intentas añadir supera el stock disponible`);
+            }; 
         }else{
             setAddedProducts([...addedProducts,{item, quantity}]);
         }
     }
 
-    const removeItem = (id) => { 
+    const removeItem = (id) => {
+        setAddedProducts(addedProducts.filter(item => item.item.Id !== id))
+    }
+
+    const getTotalPrice = () => { 
         let newValue = 0;
-        addedProducts.map(product => {
-            if(product.item.Id === id) {
-            delete addedProducts[newValue];
-            } newValue++;
+        addedProducts.map(item => {
+            newValue = newValue + (item.item.Price * item.quantity) ;       
         })
-        setAddedProducts(addedProducts.filter(item => item !== undefined && item.lenght !== 0 ))
+        return newValue;
+    }     
+       
+    const itemSumatory = ()=> {
+        let newValue = 0;
+        addedProducts.map(item => {
+            newValue = newValue + item.quantity;       
+        })
+        return newValue;
     }
 
     const clear = () => { 
@@ -43,7 +48,6 @@ export const CartProvider = ({children}) => {
     }
 
     const insIncart = (id) => { 
-
         let bool = false;
         addedProducts.map(product => {
             if(product.item.Id === id)  bool = true;
@@ -52,7 +56,7 @@ export const CartProvider = ({children}) => {
     }
 
     return (
-        <CartContext.Provider value = {{addItem, removeItem}}>
+        <CartContext.Provider value = {{addItem, removeItem, addedProducts, getTotalPrice, itemSumatory}}>
             {children}
         </CartContext.Provider>
     )

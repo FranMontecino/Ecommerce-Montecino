@@ -70,7 +70,7 @@ const NavBar = () =>  {
     <React.Fragment>
       <AppBar position="static" sx={{marginBottom:5}}>
         <Toolbar> 
-            <Link to={`/`} style={{ textDecoration: 'none' }}><FontAwesomeIcon icon={faGamepad} size="3x" /></Link>
+            <Link to={`/`} style={{ textDecoration: 'none', color: "white" }}><FontAwesomeIcon icon={faGamepad} size="3x"/></Link>
             <Typography variant="h6" component="div" sx={{ marginLeft:1}}> Gplay </Typography>          
             <Button color="inherit" id="basic-button" aria-controls="basic-menu" aria-haspopup="true" aria-expanded={open ? 'true' : undefined} sx={{ marginLeft:2}} onClick={handleClick}> Categorias </Button>
             <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose} MenuListProps={{'aria-labelledby': 'basic-button',}}>
@@ -86,7 +86,7 @@ const NavBar = () =>  {
                 </SearchIconWrapper>
                 <StyledInputBase placeholder="Buscador" inputProps={{ 'aria-label': 'search' }}/>
             </Search>
-            <CartWidget/>
+            <Link to={`/cart`} style={{ textDecoration: 'none', color: "white" }}><CartWidget/></Link>
         </Toolbar>
       </AppBar>
     </React.Fragment>
