@@ -9,15 +9,14 @@ export const CartProvider = ({children}) => {
 
     const addItem = (item, quantity) => { 
         setAddedProducts(addedProducts.filter(item => item !== undefined ))
-        if(insIncart(item.Id)){            
-            let index =  addedProducts.findIndex((prod) => prod.item.Id === item.Id)   
+        if(isIncart(item.Id)){
+            let newValue =  addedProducts.findnewValue((prod) => prod.item.Id === item.Id)
 
-            let PosibleQuantity = addedProducts[index].quantity + quantity;            
-            if(PosibleQuantity < item.Stock){
-                addedProducts[index].quantity = PosibleQuantity
-            }else{
-                alert(`El numero de productos (${PosibleQuantity}) que intentas añadir supera el stock disponible`);
-            }; 
+            let posibleQuantity = addedProducts[newValue].quantity + quantity;
+
+            if(posibleQuantity < item.Stock){
+                addedProducts[newValue].quantity = posibleQuantity
+            }  
         }else{
             setAddedProducts([...addedProducts,{item, quantity}]);
         }
@@ -47,16 +46,15 @@ export const CartProvider = ({children}) => {
         setAddedProducts([]);
     }
 
-    const insIncart = (id) => { 
+    const isIncart = (id) => { 
         let bool = false;
         addedProducts.map(product => {
             if(product.item.Id === id)  bool = true;
         });
-        return bool;
     }
 
     return (
-        <CartContext.Provider value = {{addItem, removeItem, addedProducts, getTotalPrice, itemSumatory}}>
+        <CartContext.Provider value = {{addItem, removeItem, addedProducts, getTotalPrice, itemSumatory, clear }}>
             {children}
         </CartContext.Provider>
     )

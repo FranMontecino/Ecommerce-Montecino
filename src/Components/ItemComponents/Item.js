@@ -6,7 +6,6 @@ import "../../App.css";
 
 const Item = ({product}) => {
     return(
-
         <Box sx={{border:1, margin:1, padding : 1, display:"flex", flexDirection:"column",  Width:300, maxWidth: 300, minWidth: 300, borderRadius:4}}>
             <Typography sx = {{marginLeft:"auto", fontSize:20, marginRight:"auto",marginBottom:"auto"}}>{product.Name}</Typography>  
             <img src={product.Image} className="productImage"></img> 
