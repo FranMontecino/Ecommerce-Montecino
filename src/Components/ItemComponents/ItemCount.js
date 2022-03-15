@@ -28,9 +28,9 @@ const ItemCount = ({ stock, initial, setQuantity}) => {
     return(
     <Box sx={{ border: 1, display:'flex', flexDirection:"column", width:180, padding:1, borderRadius: 2 }}>
       <Box  sx={{ margin:"auto", width: 200}}>
-        <button className="itemBtn" onClick={quitItem}><FontAwesomeIcon icon={faMinus} size="x" /></button>
+        <button className="itemBtn" onClick={quitItem}><FontAwesomeIcon icon={faMinus} size="1x" /></button>
         <Typography sx={{ marginRight:2, marginLeft:2}} variant="p" fontSize="large"> {count} </Typography>
-        <button className="itemBtn" onClick={addItem}><FontAwesomeIcon icon={faPlus} size="x" /></button> 
+        <button className="itemBtn" onClick={addItem}><FontAwesomeIcon icon={faPlus} size="1x" /></button> 
       </Box>            
       <button className="addItem" onClick={onAdd}>Añadir al Carrito</button> 
     </Box> 

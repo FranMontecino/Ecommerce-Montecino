@@ -12,7 +12,7 @@ import { UseCart } from '../Contexts/CartContext'
 const ItemDetail = ({item}) => {
 
     const[quantity, setQuantity]= useState(0);
-    const {addItem, removeItem} = UseCart();
+    const { addItem } = UseCart();
 
     useEffect(() => {
       let msg = `Has añadido al carrito ${quantity} ejemplar`

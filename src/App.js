@@ -8,14 +8,14 @@ import Cart from './Components/CartComponent/Cart'
 
 function App() {
   return (
-    <div classname="App">
+    <div className="App">
       <CartProvider>
           <NavBar/>
           <Routes>
             <Route path="/" element={<ItemListContainer/>}/>
             <Route path="/category/:id" element={<ItemListContainer/>}/>
             <Route path="/item/:id" element={<ItemDetailContainer/>}/> 
-            <Route path="/cart" element={<Cart/>} />   
+            <Route path="/cart" element={<Cart/>}/>   
           </Routes>
       </CartProvider>
     </div>    

@@ -1,23 +1,24 @@
 import { useState, useEffect } from 'react'
-import getProducts from '../../GetProducts/GetProducts';
 import ItemDetail from './ItemDetail';
-import { useParams } from "react-router-dom";
-
+import { getFirestore, getDoc, doc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-    const[item, setItem] = useState([]);
-    const { id } = useParams();
-    useEffect(() => {
-      getProducts
-      .then(res => {
-        setItem(res.find((prod) => prod.Id === parseInt(id)));
-        })
-      .catch(err => console.log('Error al obtener el detalle del producto', err))
-    },[])
+  const [item, setItem] = useState([]);
 
-    return (
-     <ItemDetail item={item}/>
-    );
+  useEffect(() => {
+    const db = getFirestore();
+
+    const docRef = doc(db, "items", 'S2YAX1z5v3THCFBr36d9');
+    getDoc(docRef).then((snapshot) => {
+
+      setItem({ id: snapshot.id, ...snapshot.data() })
+
+    })
+  }, [])
+
+  return (
+    <ItemDetail item={item}/>
+  );
 };
 
 export default ItemDetailContainer;

@@ -15,7 +15,6 @@ const Item = ({product}) => {
             <Link to={`/item/${product.Id}`} style={{ textDecoration: 'none' }}>
                 <Button variant="outlined">Ver Más...</Button>
             </Link>
-            <Button variant="contained" endIcon={<ShoppingCartIcon />}>USD${product.Price}</Button>
             </Box>
         </Box>
     )

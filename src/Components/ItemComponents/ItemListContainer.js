@@ -1,29 +1,44 @@
 import { useState, useEffect } from 'react'
-import GetProducts from "../../GetProducts/GetProducts";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import FacebookCircularProgress from '../../MaterialUi/FacebookLoader';
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const { id } = useParams();
-  const[products, SetProducts] = useState([]);
-  useEffect(() => {
-    GetProducts
-    .then(res => {
-      (id === undefined)?   SetProducts(res) :  SetProducts(res.filter((prod) => prod.Type == id.toLowerCase()));
-      })
-    .catch(err => console.log('error al obtener productos', err))
-  },[id])  
-  if (products.length>0){
+  const [products, SetProducts] = useState([]);
 
-  return (
-    <ItemList products = {products}/>
-  )}return(
-    <Box sx={{ justifyContent: "center", display :"flex"}}>
-      <CircularProgress/> 
-    </Box>
-  )
+  useEffect(() => {
+    const db = getFirestore();
+    const itemsCollection = collection(db, "items");
+    if (id === undefined) {
+      getDocs(itemsCollection).then(snapshot => {
+
+        SetProducts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      })
+    } else {
+      let q = query(itemsCollection, where("Type", "==", id));
+      getDocs(q).then(snapshot => {
+        SetProducts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      })
+    }
+  }, [id])
+
+
+  if (products.length > 0) {
+    return (
+      <ItemList products={products} />
+    );
+  }
+  {
+    return (
+      <Box sx={{ justifyContent: "center", display: "flex" }}>
+        <FacebookCircularProgress/>
+      </Box>
+    );
+  }
+
 };
 
 export default ItemListContainer;
